@@ -1,0 +1,24 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: postgres
+    jdbc:
+      url: jdbc:postgresql://localhost:5433/quarkusdb
+  hibernate-orm:
+    dialect: org.hibernate.dialect.PostgreSQLDialect
+    database:
+      generation: drop-and-create
+    sql-load-script:
+      import.sql
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: token/publicKey.pem
+        issuer: http://techtalksteve.com/issuer
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: token/privateKey.pem

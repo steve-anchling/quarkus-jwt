@@ -1,0 +1,17 @@
+POST http://localhost:8080/api/authentication/login
+Accept: application/json
+Content-Type: application/json
+
+{
+  "username": "admin@techtalsteve.com",
+  "password": "password"
+}
+
+###
+
+GET http://localhost:8080/api/authentication/roles
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3RlY2h0YWxrc3RldmUuY29tL2lzc3VlciIsInVwbiI6ImFkbWluQHRlY2h0YWxzdGV2ZS5jb20iLCJncm91cHMiOlsiUk9MRV9BUFBMSUNBVElPTiJdLCJpYXQiOjE2Mjg0MDA5MDUsImV4cCI6MTY1OTkzNjkwNSwianRpIjoiYjVlNjExODktMzJlYS00ZTNkLWFiMzEtN2RjNTcwZGI1YTQwIn0.l3MOaMcL2k4-bpHDZp42UKb36hJo86XPN9XUzNdtGbQAZUMJSSXp91sL7OdlIXwCO7lED_Qv6oO07f4rO8zTMg80nMg3__uN6XZSM2rwTrxOlcbgpRuSTEe2kugKQNKutp9YjeUAjEtZ1cnEvYDDeBD-GHI3Hv5KbALzYzfBipcICQhNQrOLpC4nRcVPb9spA50_qQh3hmz6xizJvECFwqsP_X5-5YEpz8EtOTNjvI4ZCCqgALq4o4aoroNYdeR_a9sbFoEIuLuq7ZhorXEgJ6dUk4WRgm49eLRF6hd4JFNxe3rZugPxmjtdVPhmkb3rK1Vo_dsi6EDbemMBzEGWzw
+
+###
