@@ -22,20 +22,17 @@ public class UserService {
     private final UserRepository userRepository;
     private final CryptoService cryptoService;
 
-    public Optional<User> findByUsername(final String username) {
-        return userRepository.findByEmail(username);
-    }
-
     public String authenticate(final AuthenticationRequest authRequest)
             throws AuthenticationUsernameException, AuthenticationPasswordException {
-        final User user = findByUsername(authRequest.getUsername()).orElseThrow(AuthenticationUsernameException::new);
+        final User user = userRepository.findByEmail(authRequest.getUsername())
+                .orElseThrow(AuthenticationUsernameException::new);
         if (user.getPassword().equals(cryptoService.encrypt(authRequest.getPassword()))){
             return generateToken(user);
         }
         throw new AuthenticationPasswordException();
     }
 
-    public String generateToken(final User user) {
+    private String generateToken(final User user) {
         return Jwt.issuer("https://techtalksteve.com/issuer")
                         .upn(user.getEmail())
                         .expiresIn(Duration.ofDays(365))

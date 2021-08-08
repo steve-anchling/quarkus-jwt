@@ -33,11 +33,10 @@ import java.util.Set;
 public class User implements Serializable {
     public static final String USER_SEQ = "USER_SEQ";
 
-    public User(@NotNull String email, @NotNull String password, boolean enabled, Set<String> roles) {
+    public User(@NotNull String email, @NotNull String password, Set<String> roles) {
         this.email = email;
         this.password = password;
         this.roles = roles;
-        this.enabled = enabled;
     }
 
     @Id
@@ -53,9 +52,6 @@ public class User implements Serializable {
     @NotNull
     @Column(unique = true, length = 100)
     protected String email;
-
-    @Column
-    private boolean enabled;
 
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<String> roles = new HashSet<>();
